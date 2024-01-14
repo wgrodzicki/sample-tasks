@@ -14,10 +14,12 @@ void Shuffle(int* we, int count, int* wy)
 
 	for (int i = 0; i < count; i++)
 	{
+		// Keep putting every element of we into every other element of wy, starting from wy[0]
 		if (i * 2 <= count - 1)
 		{
 			wy[i * 2] = we[i];
 		}
+		// If no more space in wy, start over again from wy[1]
 		else
 		{
 			wy[afterBreakpoint] = we[i];
@@ -54,6 +56,7 @@ void Task1()
 		cin >> element;
 		we[i] = element;
 	}
+	cout << endl;
 
 	Shuffle(we, size, wy);
 	
