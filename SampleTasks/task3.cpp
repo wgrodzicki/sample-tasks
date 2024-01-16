@@ -217,9 +217,77 @@ void PopulateStructArray(int n, employee* employees)
 }
 
 /// <summary>
+/// Compares and prints the results of salary comparison on the given position, sex-wise
+/// </summary>
+/// <param name="employees"></param>
+/// <param name="positionToCompare"></param>
+void ComparePositions(int size, employee* employees, string positionToCompare)
+{
+	int femaleCounter = 0;
+	int maleCounter = 0;
+	double femaleSalaryTotal = 0;
+	double maleSalaryTotal = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		string currentPosition = employees[i].position; // Convert from char* to string for comparison
+
+		// Check position
+		if (positionToCompare == currentPosition)
+		{
+			// Check sex
+			if (employees[i].sex == 'F')
+			{
+				femaleSalaryTotal += employees[i].salary;
+				femaleCounter++;
+			}
+			else
+			{
+				maleSalaryTotal += employees[i].salary;
+				maleCounter++;
+			}
+		}
+	}
+
+	double femaleAverageSalary = femaleSalaryTotal / (double)femaleCounter;
+	double maleAverageSalary = maleSalaryTotal / (double)maleCounter;
+
+	cout << "Average female salary: " << femaleAverageSalary << endl;
+	cout << "Average male salary: " << maleAverageSalary << endl;
+
+	if (femaleAverageSalary > maleAverageSalary)
+	{
+		cout << "Average female salary on the " << positionToCompare << " position is higher.";
+	}
+	else if (maleAverageSalary > femaleAverageSalary)
+	{
+		cout << "Average male salary on the " << positionToCompare << " position is higher.";
+	}
+	else
+	{
+		cout << "Average salaries on the " << positionToCompare << " position are equal for both sexes.";
+	}
+	cout << endl;
+}
+
+/// <summary>
+/// Handles salary comparison between sexes on the given position
+/// </summary>
+/// <param name="employees"></param>
+void Task4(int size, employee* employees)
+{
+	string inputPosition = "";
+	cout << endl;
+	cout << "Position to compare: ";
+	cin >> inputPosition;
+
+	ComparePositions(size, employees, inputPosition);
+}
+
+/// <summary>
 /// Handles population of an employee array and prints its content
 /// </summary>
-void Task3()
+void Task3(bool includeTask4 = false)
 {
 	// Get array size
 	int n = 0;
@@ -237,17 +305,27 @@ void Task3()
 
 	PopulateStructArray(n, employees);
 
+	// For task 4
+	if (includeTask4)
+	{
+		Task4(n, employees);
+	}
+
 	// Print all employees
 	for (int i = 0; i < n; i++)
 	{
-		cout << endl;
-		cout << "Employee " << i + 1 << endl;
-		cout << "Name: " << employees[i].name << endl;
-		cout << "Surname: " << employees[i].surname << endl;
-		cout << "Position: " << employees[i].position << endl;
-		cout << "Salary: " << employees[i].salary << endl;
-		cout << "Sex: " << employees[i].sex;
-		cout << endl;
+		// For task 3
+		if (!includeTask4)
+		{
+			cout << endl;
+			cout << "Employee " << i + 1 << endl;
+			cout << "Name: " << employees[i].name << endl;
+			cout << "Surname: " << employees[i].surname << endl;
+			cout << "Position: " << employees[i].position << endl;
+			cout << "Salary: " << employees[i].salary << endl;
+			cout << "Sex: " << employees[i].sex;
+			cout << endl;
+		}
 
 		// Free memory
 		delete[] employees[i].position;

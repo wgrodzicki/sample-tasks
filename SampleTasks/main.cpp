@@ -1,10 +1,10 @@
 #include "task1.h"
 #include "task2.h"
 #include "task3.h"
-#include "task4.h"
-#define _CRTDBG_MAP_ALLOC
 #include <iostream>
 using namespace std;
+
+#define _CRTDBG_MAP_ALLOC
 
 int main()
 {
@@ -24,7 +24,7 @@ int main()
 			Task3();
 			break;
 		case 4:
-			//Task4();
+			Task3(true);
 			break;
 		default:
 			break;

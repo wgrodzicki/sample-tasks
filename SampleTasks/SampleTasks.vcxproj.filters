@@ -27,9 +27,6 @@
     <ClCompile Include="task3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="task4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="task1.h">
@@ -39,9 +36,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="task3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="task4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
