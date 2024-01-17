@@ -292,7 +292,7 @@ void Task2()
 
 	PrintCar(car2);
 
-	// Comparison operators (<, >)
+	// Comparison operators (<, >, ==)
 	cout << "Comparing mileages between car 1 and car 2..." << endl;
 	cout << endl;
 
