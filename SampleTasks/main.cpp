@@ -18,7 +18,7 @@ int main()
 			Task1();
 			break;
 		case 2:
-			//Task2();
+			Task2();
 			break;
 		case 3:
 			Task3();
